@@ -1,5 +1,6 @@
+import { NuxtError } from '../.nuxt';
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -25,9 +26,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
 
@@ -37,28 +42,26 @@
       </v-container>
     </v-content>
 
-    <Footer :fixed="fixed" />
+    <v-footer
+      :fixed="fixed"
+      app
+    >
+      <span>&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Footer from '~/components/default_layout/Footer.vue'
-
-export default Vue.extend({
-  components: {
-    Footer
-  },
-
-  data() {
+<script>
+export default {
+  data () {
     return {
       clipped: true,
       drawer: true,
-      fixed: true,
+      fixed: false,
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Dashboard',
+          title: 'Welcome',
           to: '/'
         },
         {
@@ -68,8 +71,8 @@ export default Vue.extend({
         }
       ],
       miniVariant: false,
-      title: 'Awesome App'
+      title: 'Premade Layout'
     }
   }
-})
+}
 </script>

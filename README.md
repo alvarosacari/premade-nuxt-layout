@@ -1,6 +1,6 @@
 # premade-nuxt-layout
 
-> premade layout
+> My top-notch Nuxt.js project
 
 ## Build Setup
 
