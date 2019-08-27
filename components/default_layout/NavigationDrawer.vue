@@ -6,7 +6,34 @@
     fixed
     app
   >
-    <v-list dense>
+    <v-img :aspect-ratio="16/9" :src="require('~/assets/images/material.jpg')">
+      <v-row align="end" class="lightbox fill-height">
+        <v-col class="pb-0">
+          <v-list dark class="pa-0">
+            <v-list-item two-line>
+              <v-list-item-avatar>
+                <v-img :src="require('~/assets/images/face.jpg')" />
+              </v-list-item-avatar>
+
+              <v-list-item-content>
+                <v-list-item-title v-text="user.name" />
+                <v-list-item-subtitle v-text="user.email" />
+              </v-list-item-content>
+
+              <v-list-item-action>
+                <v-btn icon>
+                  <v-icon>
+                    mdi-dots-vertical
+                  </v-icon>
+                </v-btn>
+              </v-list-item-action>
+            </v-list-item>
+          </v-list>
+        </v-col>
+      </v-row>
+    </v-img>
+
+    <v-list dense nav>
       <template v-for="(item,i) in items">
         <template v-if="!item.items">
           <v-list-item
@@ -86,6 +113,15 @@ export default {
     value: {
       type: Object,
       default () { return {} }
+    }
+  },
+
+  data () {
+    return {
+      user: {
+        name: 'Alvaro S.',
+        email: 'alvaro.sacari@gmail.com'
+      }
     }
   },
 
@@ -185,3 +221,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.v-navigation-drawer {
+  transition: none !important;
+}
+
+.lightbox {
+  box-shadow: 0 0 20px inset rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 72px);
+}
+</style>
