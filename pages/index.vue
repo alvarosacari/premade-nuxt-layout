@@ -1,6 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs12>
+      <Breadcrumbs :items="breadcrumbs" />
       <v-card>
         <v-card-title class="headline">
           Welcome to the Vuetify + Nuxt.js template
@@ -14,8 +15,21 @@
 </template>
 
 <script>
+import Breadcrumbs from '~/components/core/Breadcrumbs.vue'
 
 export default {
-  components: { }
+  components: { Breadcrumbs },
+
+  data () {
+    return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        }
+      ]
+    }
+  }
 }
 </script>
