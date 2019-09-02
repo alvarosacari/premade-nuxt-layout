@@ -21,11 +21,29 @@
               </v-list-item-content>
 
               <v-list-item-action>
-                <v-btn icon>
-                  <v-icon>
-                    mdi-dots-vertical
-                  </v-icon>
-                </v-btn>
+                <v-menu offset-y open-on-hover>
+                  <template v-slot:activator="{ on }">
+                    <v-btn icon v-on="on">
+                      <v-icon>
+                        mdi-dots-vertical
+                      </v-icon>
+                    </v-btn>
+                  </template>
+                  <v-list nav dense>
+                    <v-list-item
+                      v-for="(item, index) in userMenu"
+                      :key="index"
+                      @click="() => {}"
+                    >
+                      <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-icon>
+                        <v-icon>{{ item.icon }}</v-icon>
+                      </v-list-item-icon>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
               </v-list-item-action>
             </v-list-item>
           </v-list>
@@ -121,7 +139,12 @@ export default {
       user: {
         name: 'Alvaro S.',
         email: 'alvaro.sacari@gmail.com'
-      }
+      },
+
+      userMenu: [
+        { title: 'Profile', icon: 'mdi-account' },
+        { title: 'Logout', icon: 'mdi-exit-to-app' }
+      ]
     }
   },
 
