@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "8"
+  - "10"
 
 cache:
   directories:
@@ -11,8 +11,8 @@ branches:
   - master
 
 install:
-  - npm install
-  - npm run generate
+  - yarn install
+  - yarn run generate
 
 script:
   - echo "Skipping tests"
