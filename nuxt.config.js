@@ -49,7 +49,7 @@ export default {
   ],
 
   router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/premade-nuxt-layout/' : ''
+    base: '/premade-nuxt-layout/'
   },
 
   /*
