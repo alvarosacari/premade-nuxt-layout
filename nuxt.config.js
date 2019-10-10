@@ -47,6 +47,11 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
+
+  router: {
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/premade-nuxt-layout/' : ''
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
