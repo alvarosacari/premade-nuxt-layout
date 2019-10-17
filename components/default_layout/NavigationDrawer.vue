@@ -210,7 +210,7 @@ export default {
 
   methods: {
     setExpandValue (items) {
-      const routePath = this.$route.path
+      const routePath = this.$route.matched[0].path
 
       return items.map((item) => {
         if (!item.hasOwnProperty('items')) {
